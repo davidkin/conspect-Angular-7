@@ -1,0 +1,18 @@
+.menu-block {
+  .menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    .menu-item {
+
+      .menu-link {
+        display: block;
+        width: 100%;
+        padding: 30px;
+        text-transform: uppercase;
+        font-size: 20px;
+      }
+    }
+  }
+}
