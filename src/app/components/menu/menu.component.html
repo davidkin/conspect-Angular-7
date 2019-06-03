@@ -1,9 +1,9 @@
 <nav class="menu-block">
   <ul class="menu">
 
-    <li class="menu-item" *ngFor="let menu_item of menu; index as i">
-      <a class="menu-link menu-link--{{ i + 1}}">
-        <i class="{{ menu_item }}"></i>
+    <li class="menu-item" *ngFor="let menu_item of menu | keyvalue">
+      <a routerLink="{{ menu_item.key }}" class="menu-link menu-link--{{ menu_item.key }}">
+        <i class="{{ menu_item.value }}"></i>
       </a>
     </li>
 

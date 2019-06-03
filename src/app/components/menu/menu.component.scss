@@ -23,7 +23,7 @@
         color: #fff;
         transition: all .5s ease;
 
-        &--1 {
+        &--js {
           background-color: #f8d94e;
 
           &:hover {
@@ -31,7 +31,7 @@
           }
         }
 
-        &--2 {
+        &--angular {
           background-color: #df3431;
 
           &:hover {
@@ -39,7 +39,7 @@
           }
         }
 
-        &--3 {
+        &--react {
           background-color: #35dff7;
 
           &:hover {
@@ -47,7 +47,7 @@
           }
         }
 
-        &--4 {
+        &--nodeJs {
           background-color: #50d58a;
 
           &:hover {
@@ -55,19 +55,11 @@
           }
         }
 
-        &--5 {
+        &--programming {
           background-color: #631f77;
 
           &:hover {
             background-color: darken(#631f77, 10%);
-          }
-        }
-
-        &--6 {
-          background-color: #042a8f;
-
-          &:hover {
-            background-color: darken(#042a8f, 10%);
           }
         }
       }
