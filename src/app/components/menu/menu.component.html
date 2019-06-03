@@ -1,8 +1,10 @@
 <nav class="menu-block">
   <ul class="menu">
 
-    <li class="menu-item" *ngFor="let menu_item of menu">
-      <a mat-button class="menu-link">{{ menu_item }}</a>
+    <li class="menu-item" *ngFor="let menu_item of menu; index as i">
+      <a class="menu-link menu-link--{{ i + 1}}">
+        <i class="{{ menu_item }}"></i>
+      </a>
     </li>
 
   </ul>

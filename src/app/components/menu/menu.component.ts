@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-  public menu: string[] = ['Home', 'Js', 'Patterns', 'Programming', 'Other'];
+  public menu: string[] = ['fab fa-js', 'fab fa-angular', 'fab fa-react', 'fab fa-node', 'fas fa-desktop'];
 
   constructor() { }
 

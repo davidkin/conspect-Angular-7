@@ -1,17 +1,75 @@
 .menu-block {
+  width: 300px;
+
   .menu {
     list-style: none;
     padding: 0;
     margin: 0;
 
     .menu-item {
+      height: 170.4px;
 
       .menu-link {
-        display: block;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        cursor: pointer;
+        text-align: center;
         width: 100%;
-        padding: 30px;
-        text-transform: uppercase;
-        font-size: 20px;
+        height: 100%;
+        font-family: Arial;
+        font-size: 60px;
+        color: #fff;
+        transition: all .5s ease;
+
+        &--1 {
+          background-color: #f8d94e;
+
+          &:hover {
+            background-color: darken(#f8d94e, 15%);
+          }
+        }
+
+        &--2 {
+          background-color: #df3431;
+
+          &:hover {
+            background-color: darken(#df3431, 10%);
+          }
+        }
+
+        &--3 {
+          background-color: #35dff7;
+
+          &:hover {
+            background-color: darken(#35dff7, 10%);
+          }
+        }
+
+        &--4 {
+          background-color: #50d58a;
+
+          &:hover {
+            background-color: darken(#50d58a, 10%);
+          }
+        }
+
+        &--5 {
+          background-color: #631f77;
+
+          &:hover {
+            background-color: darken(#631f77, 10%);
+          }
+        }
+
+        &--6 {
+          background-color: #042a8f;
+
+          &:hover {
+            background-color: darken(#042a8f, 10%);
+          }
+        }
       }
     }
   }
