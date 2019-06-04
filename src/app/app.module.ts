@@ -9,14 +9,15 @@ import { AppComponent } from './app.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
-import { MaterialModule } from './shared/modules/material.module';
+import { MaterialModule } from './modules/material.module';
 
 import { MenuComponent } from './components/menu/menu.component';
 import { JsPageComponent } from './pages/js-page/js-page.component';
 import { PopupWindowComponent } from './components/popup-theme-window/popup-window.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LocalStorageService } from './shared/services/localStorage.service';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { ThemeService } from './shared/services/theme.service';
+import { NgrxModule } from './modules/ngrx.module';
 
 @NgModule({
   declarations: [
@@ -34,9 +35,10 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     ReactiveFormsModule,
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    NgrxModule
   ],
-  providers: [LocalStorageService] ,
+  providers: [ThemeService] ,
   bootstrap: [AppComponent],
   entryComponents: [PopupWindowComponent]
 })

@@ -1,8 +1,7 @@
-import { ITheme } from './../../shared/interfaces/ITheme';
+import { ThemeService } from './../../shared/services/theme.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-popup-window',
@@ -16,15 +15,11 @@ export class PopupWindowComponent implements OnInit {
     shortDescription: ['']
   });
 
-  private themesCollection: AngularFirestoreCollection<ITheme>;
-
   constructor(
     private dialogRef: MatDialogRef<PopupWindowComponent>,
     private formBuilder: FormBuilder,
-    private database: AngularFirestore
-  ) {
-    this.themesCollection = this.database.collection<ITheme>('themes');
-  }
+    private themeService: ThemeService
+  ) {}
 
   ngOnInit() {
     this.submitted = false;
@@ -46,7 +41,7 @@ export class PopupWindowComponent implements OnInit {
       description: this.createThemeForm.value.shortDescription
     };
 
-    this.themesCollection.add(theme);
+    this.themeService.addNewTheme(theme);
 
     this.dialogRef.close();
   }

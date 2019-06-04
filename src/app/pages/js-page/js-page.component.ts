@@ -2,8 +2,8 @@ import { ITheme } from './../../shared/interfaces/ITheme';
 import { Component, OnInit, DoCheck } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { PopupWindowComponent } from '../../components/popup-theme-window/popup-window.component';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { ThemeService } from 'src/app/shared/services/theme.service';
 
 @Component({
   selector: 'app-js-page',
@@ -15,12 +15,11 @@ export class JsPageComponent implements OnInit, DoCheck {
 
   constructor(
     private dialog: MatDialog,
-    private database: AngularFirestore
-  ) {
-  }
+    private themeService: ThemeService
+  ) {}
 
   ngOnInit(): void {
-    this.themes = this.database.collection<ITheme>('themes').valueChanges();
+    this.themes = this.themeService.getAllThemes();
   }
 
   ngDoCheck(): void {
@@ -28,7 +27,6 @@ export class JsPageComponent implements OnInit, DoCheck {
 
   onCreteTheme() {
     const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = '400px';
 
