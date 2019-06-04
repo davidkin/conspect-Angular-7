@@ -1,4 +1,4 @@
-import { JsPageComponent } from './js-page/js-page.component';
+import { JsPageComponent } from './pages/js-page/js-page.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 

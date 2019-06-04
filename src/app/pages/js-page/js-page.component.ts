@@ -1,7 +1,9 @@
+import { ITheme } from './../../shared/interfaces/ITheme';
 import { Component, OnInit, DoCheck } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
-import { PopupWindowComponent } from '../components/popup-theme-window/popup-window.component';
-import { LocalStorageService } from '../shared/services/localStorage.service';
+import { PopupWindowComponent } from '../../components/popup-theme-window/popup-window.component';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-js-page',
@@ -9,19 +11,19 @@ import { LocalStorageService } from '../shared/services/localStorage.service';
   styleUrls: ['./js-page.component.scss'],
 })
 export class JsPageComponent implements OnInit, DoCheck {
-
-  public themes: any[];
+  public themes: Observable<ITheme[]>;
 
   constructor(
     private dialog: MatDialog,
-    private localStorage: LocalStorageService,
-  ) { }
+    private database: AngularFirestore
+  ) {
+  }
 
   ngOnInit(): void {
+    this.themes = this.database.collection<ITheme>('themes').valueChanges();
   }
 
   ngDoCheck(): void {
-    this.themes = this.localStorage.getCurrentThemes();
   }
 
   onCreteTheme() {

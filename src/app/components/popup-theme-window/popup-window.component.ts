@@ -1,7 +1,8 @@
+import { ITheme } from './../../shared/interfaces/ITheme';
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { LocalStorageService } from 'src/app/shared/services/localStorage.service';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-popup-window',
@@ -15,11 +16,15 @@ export class PopupWindowComponent implements OnInit {
     shortDescription: ['']
   });
 
-constructor(
+  private themesCollection: AngularFirestoreCollection<ITheme>;
+
+  constructor(
     private dialogRef: MatDialogRef<PopupWindowComponent>,
     private formBuilder: FormBuilder,
-    private localStorageService: LocalStorageService
-  ) { }
+    private database: AngularFirestore
+  ) {
+    this.themesCollection = this.database.collection<ITheme>('themes');
+  }
 
   ngOnInit() {
     this.submitted = false;
@@ -36,15 +41,12 @@ constructor(
   onSubmit(): void {
     this.submitted = true;
 
-    console.log('--- PopupWindowComponent: themeName', this.createThemeForm.value.themeName);
-    console.log('--- PopupWindowComponent: shortDescription', this.createThemeForm.value.shortDescription);
-
     const theme = {
       name: this.createThemeForm.value.themeName,
       description: this.createThemeForm.value.shortDescription
     };
 
-    this.localStorageService.setThemeInLocalStorage(theme);
+    this.themesCollection.add(theme);
 
     this.dialogRef.close();
   }

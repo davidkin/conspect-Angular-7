@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { environment } from '../environments/environment';
+
 import { AppComponent } from './app.component';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -8,10 +12,11 @@ import { CoreModule } from './core/core.module';
 import { MaterialModule } from './shared/modules/material.module';
 
 import { MenuComponent } from './components/menu/menu.component';
-import { JsPageComponent } from './js-page/js-page.component';
+import { JsPageComponent } from './pages/js-page/js-page.component';
 import { PopupWindowComponent } from './components/popup-theme-window/popup-window.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LocalStorageService } from './shared/services/localStorage.service';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -27,8 +32,11 @@ import { LocalStorageService } from './shared/services/localStorage.service';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    AngularFirestoreModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
   ],
-  providers: [LocalStorageService],
+  providers: [LocalStorageService] ,
   bootstrap: [AppComponent],
   entryComponents: [PopupWindowComponent]
 })
