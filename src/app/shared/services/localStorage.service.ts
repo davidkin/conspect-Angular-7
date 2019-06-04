@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
+import { ITheme } from '../interfaces/ITheme';
 
 @Injectable()
 export class LocalStorageService {
-  themes: any[] = [];
+  themes: ITheme[] = [];
 
   constructor() {}
 
