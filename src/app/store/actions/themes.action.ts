@@ -3,7 +3,7 @@ import { ITheme } from 'src/app/shared/interfaces/ITheme';
 
 export enum EThemesActions {
   GetThemes = '[Themes] Get Themes',
-  GetThemesSuccess = '[Themes] Get Themes Success'
+  GetThemesSuccess = '[Themes] Get Themes Success',
 }
 
 export class GetThemes implements Action {
