@@ -18,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { ThemeService } from './shared/services/theme.service';
 import { NgrxModule } from './modules/ngrx.module';
+import { JsThemesComponent } from './pages/js-page/js-themes/js-themes.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { NgrxModule } from './modules/ngrx.module';
     MenuComponent,
     JsPageComponent,
     PopupWindowComponent,
+    JsThemesComponent,
   ],
   imports: [
     BrowserModule,
