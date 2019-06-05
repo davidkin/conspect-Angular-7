@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { PopupWindowComponent } from '../../components/popup-theme-window/popup-window.component';
 import { Store, select } from '@ngrx/store';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-js-page',
@@ -16,7 +17,8 @@ export class JsPageComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,
-    private store: Store<IAppState>
+    private store: Store<IAppState>,
+    private route: Router
   ) {}
 
   ngOnInit(): void {
@@ -29,5 +31,9 @@ export class JsPageComponent implements OnInit {
     dialogConfig.width = '400px';
 
     this.dialog.open(PopupWindowComponent, dialogConfig);
+  }
+
+  onSelectTheme(themeId) {
+    this.route.navigate(['/js/', themeId]);
   }
 }
