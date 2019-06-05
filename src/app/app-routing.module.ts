@@ -5,13 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: '/js', pathMatch: 'full' },
-  {
-    path: 'js',
-    component: JsPageComponent,
-    // children: [
-    //   {path: 'js-theme', component: JsThemesComponent}
-    // ]
-  },
+  { path: 'js', component: JsPageComponent },
   { path: 'js/:id', component: JsThemesComponent }
 ];
 
