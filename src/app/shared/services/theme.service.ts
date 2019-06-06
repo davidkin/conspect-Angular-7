@@ -13,7 +13,6 @@ export class ThemeService {
     private database: AngularFirestore,
   ) {
     this.themesCollection = this.database.collection<ITheme>('themes');
-    this.themes = this.themesCollection.valueChanges();
   }
 
   getAllThemes(): Observable<ITheme[]> {
