@@ -30,6 +30,10 @@ export class ThemeService {
     this.themesCollection.add(newTheme);
   }
 
+  updateTheme(id: string, data: ITheme): void {
+    this.database.doc(`themes/${id}`).update(data);
+  }
+
   getThemeById(uid: string): Observable<ITheme[]> {
     return this.themesCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {
@@ -37,7 +41,7 @@ export class ThemeService {
         const id = a.payload.doc.id;
 
         if (uid === id) {
-          return data;
+          return { id, ...data };
         }
 
       }))
