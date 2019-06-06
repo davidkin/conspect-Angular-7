@@ -1,5 +1,5 @@
 import { selectThemesList } from './../../store/selectors/themes.selector';
-import { GetThemes } from './../../store/actions/themes.action';
+import { GetThemes, GetTheme } from './../../store/actions/themes.action';
 import { IAppState } from './../../store/states/app.state';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
@@ -34,6 +34,6 @@ export class JsPageComponent implements OnInit {
   }
 
   onSelectTheme(themeId) {
-    this.route.navigate(['/js/', themeId]);
+    this.store.dispatch(new GetTheme(themeId));
   }
 }
