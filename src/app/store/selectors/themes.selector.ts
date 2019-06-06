@@ -8,3 +8,8 @@ export const selectThemesList = createSelector(
   selectThemes,
   (state: IThemesState) => state.themes
 );
+
+export const selectSelectedTheme = createSelector(
+  selectThemes,
+  (state: IThemesState) => state.selectedTheme
+);
