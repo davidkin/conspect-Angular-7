@@ -1,3 +1,4 @@
+import { PopupService } from './../../shared/services/popup.service';
 import { selectThemesList } from '../../store/selectors/themes.selector';
 import { GetThemes, GetTheme } from '../../store/actions/themes.action';
 import { IAppState } from '../../store/states/app.state';
@@ -17,7 +18,8 @@ export class ThemePageComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,
-    private store: Store<IAppState>
+    private store: Store<IAppState>,
+    private popupService: PopupService
   ) {}
 
   ngOnInit(): void {
@@ -25,11 +27,8 @@ export class ThemePageComponent implements OnInit {
   }
 
   onCreteTheme() {
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.autoFocus = true;
-    dialogConfig.width = '400px';
-
-    this.dialog.open(PopupWindowComponent, dialogConfig);
+    const popup = this.popupService.createPopup();
+    this.dialog.open(PopupWindowComponent, popup);
   }
 
   onSelectTheme(themeId) {

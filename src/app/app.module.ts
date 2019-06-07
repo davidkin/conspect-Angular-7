@@ -1,3 +1,4 @@
+import { PopupService } from './shared/services/popup.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -44,7 +45,7 @@ import { AngularThemeComponent } from './pages/angular-page/angular-theme/angula
     AngularFireDatabaseModule,
     NgrxModule
   ],
-  providers: [ThemeService] ,
+  providers: [ThemeService, PopupService] ,
   bootstrap: [AppComponent],
   entryComponents: [PopupWindowComponent]
 })
