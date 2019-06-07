@@ -2,7 +2,7 @@ import { ThemeService } from '../../../shared/services/theme.service';
 import { ITheme } from 'src/app/shared/interfaces/ITheme';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Store, select } from '@ngrx/store';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IAppState } from 'src/app/store/states/app.state';
 import { selectSelectedTheme } from 'src/app/store/selectors/themes.selector';
@@ -15,10 +15,10 @@ import { GetTheme } from 'src/app/store/actions/themes.action';
 })
 export class ThemeComponent implements OnInit {
   public themes = this.store.pipe(select(selectSelectedTheme));
-  public panelOpenState = false;
   public edit = false;
   public theme: ITheme;
-  public themeName = 'themes';
+
+  @Input() themeName: string;
 
   public editForm: FormGroup = this.formBuilder.group({
     id: [''],
