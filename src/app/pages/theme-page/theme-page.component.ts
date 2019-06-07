@@ -1,3 +1,4 @@
+import { IGetThemePayload } from './../../shared/interfaces/IGetThemePayload';
 import { PopupService } from './../../shared/services/popup.service';
 import { selectThemesList } from '../../store/selectors/themes.selector';
 import { GetThemes, GetTheme } from '../../store/actions/themes.action';
@@ -18,6 +19,7 @@ export class ThemePageComponent implements OnInit {
 
   @Input() icon: string;
   @Input() themeName: string;
+  @Input() pageName: string;
 
   constructor(
     private dialog: MatDialog,
@@ -29,12 +31,18 @@ export class ThemePageComponent implements OnInit {
     this.store.dispatch(new GetThemes(this.themeName));
   }
 
-  onCreteTheme() {
+  onCreteTheme(): void {
     const popup = this.popupService.createPopup();
     this.dialog.open(PopupWindowComponent, popup);
   }
 
-  onSelectTheme(themeId) {
-    this.store.dispatch(new GetTheme(themeId, this.themeName));
+  onSelectTheme(themeId): void {
+    const themeInfo: IGetThemePayload = {
+      id: themeId,
+      themeName: this.themeName,
+      route: this.pageName
+    };
+
+    this.store.dispatch(new GetTheme(themeInfo));
   }
 }

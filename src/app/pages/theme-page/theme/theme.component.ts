@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import { IAppState } from 'src/app/store/states/app.state';
 import { selectSelectedTheme } from 'src/app/store/selectors/themes.selector';
 import { GetTheme } from 'src/app/store/actions/themes.action';
+import { IGetThemePayload } from 'src/app/shared/interfaces/IGetThemePayload';
 
 @Component({
   selector: 'app-theme',
@@ -19,6 +20,7 @@ export class ThemeComponent implements OnInit {
   public theme: ITheme;
 
   @Input() themeName: string;
+  @Input() pageName: string;
 
   public editForm: FormGroup = this.formBuilder.group({
     id: [''],
@@ -38,9 +40,15 @@ export class ThemeComponent implements OnInit {
     return this.editForm.controls;
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     const id = this.route.snapshot.params.id;
-    this.store.dispatch(new GetTheme(id, this.themeName));
+    const themeInfo: IGetThemePayload = {
+      id,
+      themeName: this.themeName,
+      route: this.pageName
+    };
+
+    this.store.dispatch(new GetTheme(themeInfo));
 
     this.themes.subscribe(theme => {
       if (theme) {
@@ -55,7 +63,7 @@ export class ThemeComponent implements OnInit {
     });
   }
 
-  onSubmit() {
+  onSubmit(): void {
     this.edit = !this.edit;
 
     const id = this.editForm.value.id;
