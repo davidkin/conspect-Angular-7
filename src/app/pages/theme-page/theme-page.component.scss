@@ -1,0 +1,50 @@
+.wrapper {
+  padding: 30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.title {
+  font-size: 200px;
+  margin: 0;
+}
+
+.fa-angular {
+  color: #df3431;
+}
+
+.fa-js-square {
+  color: #f8d94e;
+}
+
+.example-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  margin: 20px;
+  text-align: center;
+  width: 250px;
+  height: 150px;
+  transition: all .5s ease;
+
+  h3,p {
+    margin: 0;
+  }
+
+  h3 {
+    margin-bottom: 10px;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(1.0);
+  }
+}
+

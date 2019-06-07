@@ -6,6 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
+  public menu = {
+    js: 'fab fa-js',
+    angular: 'fab fa-angular',
+    react: 'fab fa-react',
+    nodeJs: 'fab fa-node',
+    programming: 'fas fa-desktop'
+  };
 
   constructor() { }
 

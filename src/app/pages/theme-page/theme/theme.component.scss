@@ -1,0 +1,57 @@
+.wrapper {
+  padding: 30px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  position: relative;
+  max-width: 1000px;
+  margin: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid #3f51b5;
+  border-radius: 5px;
+}
+
+.form-title {
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.description {
+  margin-bottom: 100px;
+}
+
+.textarea {
+  resize: none;
+}
+
+.info {
+  margin: 0 auto 30px;
+  max-width: 965px;
+}
+
+.info-text {
+  font-size: 19px;
+  text-align: justify;
+}
+
+.btn-block {
+  text-align: center;
+}
+
+.close-btn {
+  position: absolute;
+  top: -3px;
+  right: 0px;
+}

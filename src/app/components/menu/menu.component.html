@@ -1,3 +1,11 @@
-<p>
-  menu works!
-</p>
+<nav class="menu-block">
+  <ul class="menu">
+
+    <li class="menu-item" *ngFor="let menu_item of menu | keyvalue">
+      <a routerLink="{{ menu_item.key }}" class="menu-link menu-link--{{ menu_item.key }}">
+        <i class="{{ menu_item.value }}"></i>
+      </a>
+    </li>
+
+  </ul>
+</nav>

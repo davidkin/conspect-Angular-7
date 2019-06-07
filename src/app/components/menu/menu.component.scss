@@ -1,0 +1,68 @@
+.menu-block {
+  width: 300px;
+
+  .menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    .menu-item {
+      height: 170.4px;
+
+      .menu-link {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        cursor: pointer;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        font-family: Arial;
+        font-size: 60px;
+        color: #fff;
+        transition: all .5s ease;
+
+        &--js {
+          background-color: #f8d94e;
+
+          &:hover {
+            background-color: darken(#f8d94e, 15%);
+          }
+        }
+
+        &--angular {
+          background-color: #df3431;
+
+          &:hover {
+            background-color: darken(#df3431, 10%);
+          }
+        }
+
+        &--react {
+          background-color: #35dff7;
+
+          &:hover {
+            background-color: darken(#35dff7, 10%);
+          }
+        }
+
+        &--nodeJs {
+          background-color: #50d58a;
+
+          &:hover {
+            background-color: darken(#50d58a, 10%);
+          }
+        }
+
+        &--programming {
+          background-color: #631f77;
+
+          &:hover {
+            background-color: darken(#631f77, 10%);
+          }
+        }
+      }
+    }
+  }
+}
