@@ -21,17 +21,18 @@ export class ThemesEffects {
   @Effect()
   getThemes$ = this.actions$.pipe(
     ofType<GetThemes>(EThemesActions.GetThemes),
-    switchMap(() => this.themeService.getAllThemes()),
+    map(action => action.payload),
+    switchMap(themeName => this.themeService.getAllThemes(themeName)),
     switchMap((theme: ITheme[]) => of(new GetThemesSuccess(theme)))
   );
 
   @Effect()
   getTheme$ = this.actions$.pipe(
     ofType<GetTheme>(EThemesActions.GetTheme),
-    map(action => action.payload),
-    switchMap(id => {
+    map(action => [action.id, action.themeName]),
+    switchMap(([id, themeName]) => {
       this.routes.navigate(['/js/', id]);
-      return this.themeService.getThemeById(id);
+      return this.themeService.getThemeById(id, themeName);
     }),
     switchMap((theme: ITheme[]) => of(new GetThemeSuccess(theme)))
   );

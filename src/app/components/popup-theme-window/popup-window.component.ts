@@ -41,7 +41,7 @@ export class PopupWindowComponent implements OnInit {
       description: this.createThemeForm.value.shortDescription
     };
 
-    this.themeService.addNewTheme(theme);
+    this.themeService.addNewTheme(theme, 'themes');
 
     this.dialogRef.close();
   }

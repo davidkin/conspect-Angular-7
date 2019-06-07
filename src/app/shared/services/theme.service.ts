@@ -13,8 +13,8 @@ export class ThemeService {
     private database: AngularFirestore,
   ) {}
 
-  getAllThemes(): Observable<ITheme[]> {
-    return this.database.collection<ITheme>('themes').snapshotChanges().pipe(
+  getAllThemes(themeName: string): Observable<ITheme[]> {
+    return this.database.collection<ITheme>(themeName).snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as ITheme;
         const id = a.payload.doc.id;
@@ -24,16 +24,16 @@ export class ThemeService {
     );
   }
 
-  addNewTheme(newTheme: ITheme): void {
-    this.database.collection<ITheme>('themes').add(newTheme);
+  addNewTheme(newTheme: ITheme, themeName: string): void {
+    this.database.collection<ITheme>(themeName).add(newTheme);
   }
 
-  updateTheme(id: string, data: ITheme): void {
-    this.database.doc(`themes/${id}`).update(data);
+  updateTheme(id: string, data: ITheme, themeName: string): void {
+    this.database.doc(`${themeName}/${id}`).update(data);
   }
 
-  getThemeById(uid: string): Observable<ITheme[]> {
-    return this.database.collection<ITheme>('themes').snapshotChanges().pipe(
+  getThemeById(uid: string, themeName: string): Observable<ITheme[]> {
+    return this.database.collection<ITheme>(themeName).snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as ITheme;
         const id = a.payload.doc.id;
@@ -46,8 +46,8 @@ export class ThemeService {
     );
   }
 
-  getIdOfThemes(): Observable<string[]> {
-    return this.database.collection<ITheme>('themes').snapshotChanges().pipe(
+  getIdOfThemes(themeName: string): Observable<string[]> {
+    return this.database.collection<ITheme>(themeName).snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const id = a.payload.doc.id;
 

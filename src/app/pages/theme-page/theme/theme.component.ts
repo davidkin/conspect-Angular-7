@@ -18,6 +18,7 @@ export class ThemeComponent implements OnInit {
   public panelOpenState = false;
   public edit = false;
   public theme: ITheme;
+  public themeName = 'themes';
 
   public editForm: FormGroup = this.formBuilder.group({
     id: [''],
@@ -39,7 +40,7 @@ export class ThemeComponent implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.params.id;
-    this.store.dispatch(new GetTheme(id));
+    this.store.dispatch(new GetTheme(id, this.themeName));
 
     this.themes.subscribe(theme => {
       if (theme) {
@@ -60,7 +61,7 @@ export class ThemeComponent implements OnInit {
     const id = this.editForm.value.id;
     const data = this.editForm.value;
 
-    this.themeService.updateTheme(id, data);
+    this.themeService.updateTheme(id, data, this.themeName);
   }
 
 }

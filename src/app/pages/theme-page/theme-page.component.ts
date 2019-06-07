@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
 })
 export class ThemePageComponent implements OnInit {
   public themes = this.store.pipe(select(selectThemesList));
+  public themeName = 'themes';
 
   constructor(
     private dialog: MatDialog,
@@ -23,7 +24,7 @@ export class ThemePageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.store.dispatch(new GetThemes());
+    this.store.dispatch(new GetThemes(this.themeName));
   }
 
   onCreteTheme() {
@@ -32,6 +33,8 @@ export class ThemePageComponent implements OnInit {
   }
 
   onSelectTheme(themeId) {
-    this.store.dispatch(new GetTheme(themeId));
+    console.log(themeId);
+
+    this.store.dispatch(new GetTheme(themeId, this.themeName));
   }
 }

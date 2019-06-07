@@ -10,6 +10,7 @@ export enum EThemesActions {
 
 export class GetThemes implements Action {
   public readonly type = EThemesActions.GetThemes;
+  constructor(public payload: string) {}
 }
 
 export class GetThemesSuccess implements Action {
@@ -19,7 +20,7 @@ export class GetThemesSuccess implements Action {
 
 export class GetTheme implements Action {
   public readonly type = EThemesActions.GetTheme;
-  constructor(public payload: string) {}
+  constructor(public id: string, public themeName: string) {}
 }
 
 export class GetThemeSuccess implements Action {
