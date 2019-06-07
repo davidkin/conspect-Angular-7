@@ -1,3 +1,4 @@
+import { IGetThemePayload } from './../../shared/interfaces/IGetThemePayload';
 import { Action } from '@ngrx/store';
 import { ITheme } from 'src/app/shared/interfaces/ITheme';
 
@@ -20,7 +21,7 @@ export class GetThemesSuccess implements Action {
 
 export class GetTheme implements Action {
   public readonly type = EThemesActions.GetTheme;
-  constructor(public id: string, public themeName: string) {}
+  constructor(public payload: IGetThemePayload) {}
 }
 
 export class GetThemeSuccess implements Action {

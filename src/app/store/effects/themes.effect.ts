@@ -29,9 +29,9 @@ export class ThemesEffects {
   @Effect()
   getTheme$ = this.actions$.pipe(
     ofType<GetTheme>(EThemesActions.GetTheme),
-    map(action => [action.id, action.themeName]),
-    switchMap(([id, themeName]) => {
-      this.routes.navigate(['/js/', id]);
+    map(action => action.payload),
+    switchMap(({ id, themeName, route}) => {
+      this.routes.navigate([`/${route}/`, id]);
       return this.themeService.getThemeById(id, themeName);
     }),
     switchMap((theme: ITheme[]) => of(new GetThemeSuccess(theme)))
