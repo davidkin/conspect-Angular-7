@@ -22,6 +22,8 @@ import { NgrxModule } from './modules/ngrx.module';
 import { ThemeComponent } from './pages/theme-page/theme/theme.component';
 import { AngularPageComponent } from './pages/angular-page/angular-page.component';
 import { AngularThemeComponent } from './pages/angular-page/angular-theme/angular-theme.component';
+import { JsPageComponent } from './pages/js-page/js-page.component';
+import { JsThemeComponent } from './pages/js-page/js-theme/js-theme.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { AngularThemeComponent } from './pages/angular-page/angular-theme/angula
     ThemeComponent,
     AngularPageComponent,
     AngularThemeComponent,
+    JsPageComponent,
+    JsThemeComponent,
   ],
   imports: [
     BrowserModule,

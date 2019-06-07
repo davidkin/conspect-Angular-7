@@ -31,7 +31,7 @@ export class ThemesEffects {
     ofType<GetTheme>(EThemesActions.GetTheme),
     map(action => [action.id, action.themeName]),
     switchMap(([id, themeName]) => {
-      this.routes.navigate(['/js/', id]);
+      this.routes.navigate(['/test/', id]);
       return this.themeService.getThemeById(id, themeName);
     }),
     switchMap((theme: ITheme[]) => of(new GetThemeSuccess(theme)))
