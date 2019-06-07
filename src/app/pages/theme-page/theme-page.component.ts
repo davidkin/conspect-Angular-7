@@ -1,3 +1,4 @@
+import { ThemeService } from './../../shared/services/theme.service';
 import { IGetThemePayload } from './../../shared/interfaces/IGetThemePayload';
 import { PopupService } from './../../shared/services/popup.service';
 import { selectThemesList } from '../../store/selectors/themes.selector';
@@ -24,7 +25,8 @@ export class ThemePageComponent implements OnInit {
   constructor(
     private dialog: MatDialog,
     private store: Store<IAppState>,
-    private popupService: PopupService
+    private popupService: PopupService,
+    private themeService: ThemeService
   ) {}
 
   ngOnInit(): void {
@@ -36,12 +38,17 @@ export class ThemePageComponent implements OnInit {
     this.dialog.open(PopupWindowComponent, popup);
   }
 
-  onSelectTheme(themeId): void {
+  onSelectTheme(themeId, event): void {
     const themeInfo: IGetThemePayload = {
       id: themeId,
       themeName: this.themeName,
       route: this.pageName
     };
+
+    if (event.target.tagName === 'MAT-ICON') {
+      this.themeService.deleteTheme(themeId, this.themeName);
+      return;
+    }
 
     this.store.dispatch(new GetTheme(themeInfo));
   }

@@ -21,6 +21,7 @@
 }
 
 .example-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -48,3 +49,8 @@
   }
 }
 
+.delete-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
