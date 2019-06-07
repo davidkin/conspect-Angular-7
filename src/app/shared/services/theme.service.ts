@@ -32,6 +32,10 @@ export class ThemeService {
     this.database.doc(`${themeName}/${id}`).update(data);
   }
 
+  deleteTheme(id: string, themeName: string) {
+    this.database.doc(`${themeName}/${id}`).delete();
+  }
+
   getThemeById(uid: string, themeName: string): Observable<ITheme[]> {
     return this.database.collection<ITheme>(themeName).snapshotChanges().pipe(
       map(actions => actions.map(a => {
