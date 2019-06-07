@@ -8,7 +8,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/test', pathMatch: 'full' },
+  { path: '', redirectTo: '/js', pathMatch: 'full' },
 
   { path: 'test', component: ThemePageComponent },
   { path: 'test/:id', component: ThemeComponent },
