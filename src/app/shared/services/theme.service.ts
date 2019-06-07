@@ -11,12 +11,10 @@ export class ThemeService {
 
   constructor(
     private database: AngularFirestore,
-  ) {
-    this.themesCollection = this.database.collection<ITheme>('themes');
-  }
+  ) {}
 
   getAllThemes(): Observable<ITheme[]> {
-    return this.themesCollection.snapshotChanges().pipe(
+    return this.database.collection<ITheme>('themes').snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as ITheme;
         const id = a.payload.doc.id;
@@ -27,7 +25,7 @@ export class ThemeService {
   }
 
   addNewTheme(newTheme: ITheme): void {
-    this.themesCollection.add(newTheme);
+    this.database.collection<ITheme>('themes').add(newTheme);
   }
 
   updateTheme(id: string, data: ITheme): void {
@@ -35,7 +33,7 @@ export class ThemeService {
   }
 
   getThemeById(uid: string): Observable<ITheme[]> {
-    return this.themesCollection.snapshotChanges().pipe(
+    return this.database.collection<ITheme>('themes').snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as ITheme;
         const id = a.payload.doc.id;
@@ -49,7 +47,7 @@ export class ThemeService {
   }
 
   getIdOfThemes(): Observable<string[]> {
-    return this.themesCollection.snapshotChanges().pipe(
+    return this.database.collection<ITheme>('themes').snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const id = a.payload.doc.id;
 
