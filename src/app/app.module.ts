@@ -12,21 +12,25 @@ import { CoreModule } from './core/core.module';
 import { MaterialModule } from './modules/material.module';
 
 import { MenuComponent } from './components/menu/menu.component';
-import { JsPageComponent } from './pages/js-page/js-page.component';
+import { ThemePageComponent } from './pages/theme-page/theme-page.component';
 import { PopupWindowComponent } from './components/popup-theme-window/popup-window.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { ThemeService } from './shared/services/theme.service';
 import { NgrxModule } from './modules/ngrx.module';
-import { JsThemesComponent } from './pages/js-page/js-theme/js-themes.component';
+import { ThemeComponent } from './pages/theme-page/theme/theme.component';
+import { AngularPageComponent } from './pages/angular-page/angular-page.component';
+import { AngularThemeComponent } from './pages/angular-page/angular-theme/angular-theme.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    JsPageComponent,
+    ThemePageComponent,
     PopupWindowComponent,
-    JsThemesComponent,
+    ThemeComponent,
+    AngularPageComponent,
+    AngularThemeComponent,
   ],
   imports: [
     BrowserModule,
