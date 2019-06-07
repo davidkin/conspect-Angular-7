@@ -71,5 +71,4 @@ export class ThemeComponent implements OnInit {
 
     this.themeService.updateTheme(id, data, this.themeName);
   }
-
 }

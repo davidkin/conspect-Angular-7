@@ -1,7 +1,8 @@
+import { Router } from '@angular/router';
 import { ThemeService } from './../../shared/services/theme.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-popup-window',
@@ -18,7 +19,8 @@ export class PopupWindowComponent implements OnInit {
   constructor(
     private dialogRef: MatDialogRef<PopupWindowComponent>,
     private formBuilder: FormBuilder,
-    private themeService: ThemeService
+    private themeService: ThemeService,
+    private router: Router,
   ) {}
 
   ngOnInit() {
@@ -35,13 +37,14 @@ export class PopupWindowComponent implements OnInit {
 
   onSubmit(): void {
     this.submitted = true;
+    const path = `${this.router.url.split('/')[1]}-theme`;
 
     const theme = {
       name: this.createThemeForm.value.themeName,
       description: this.createThemeForm.value.shortDescription
     };
 
-    this.themeService.addNewTheme(theme, 'themes');
+    this.themeService.addNewTheme(theme, path);
 
     this.dialogRef.close();
   }
