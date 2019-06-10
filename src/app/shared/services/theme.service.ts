@@ -28,7 +28,7 @@ export class ThemeService {
     this.database.collection<ITheme>(themeName).add(newTheme);
   }
 
-  updateTheme(id: string, data: ITheme, themeName: string): void {
+  updateTheme(id: string, data: ITheme, themeName: string) {
     this.database.doc(`${themeName}/${id}`).update(data);
   }
 

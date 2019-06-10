@@ -1,5 +1,5 @@
 import { ThemeService } from './../../shared/services/theme.service';
-import { IGetThemePayload } from './../../shared/interfaces/IGetThemePayload';
+import { IGetThemePayload } from './../../shared/interfaces/IThemePayloads';
 import { PopupService } from './../../shared/services/popup.service';
 import { selectThemesList } from '../../store/selectors/themes.selector';
 import { GetThemes, GetTheme } from '../../store/actions/themes.action';

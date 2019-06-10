@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import { IAppState } from 'src/app/store/states/app.state';
 import { selectSelectedTheme } from 'src/app/store/selectors/themes.selector';
 import { GetTheme } from 'src/app/store/actions/themes.action';
-import { IGetThemePayload } from 'src/app/shared/interfaces/IGetThemePayload';
+import { IGetThemePayload } from 'src/app/shared/interfaces/IThemePayloads';
 
 @Component({
   selector: 'app-theme',
