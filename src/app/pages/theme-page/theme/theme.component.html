@@ -6,41 +6,52 @@
 
   <ng-container *ngIf="theme">
 
-    <h1 class="text-center">{{ theme.name }}</h1>
-    <h3 class="text-center description">{{ theme.description }}</h3>
+    <div class="edit-title">
+      <button class="btn-edit btn-edit-title" mat-icon-button (click)="onSubmit($event);">
+        <mat-icon class="btn-edit-title">{{ !editTitle ? 'edit' : 'done' }}</mat-icon>
+      </button>
 
-    <div class="info">
+      <ng-container *ngIf="!editTitle">
+        <h1 class="text-center title">{{ theme.name }}</h1>
+        <h3 class="text-center description">{{ theme.description }}</h3>
+      </ng-container>
 
-      <p class="info-text">{{ theme.info }}</p>
+      <form [formGroup]="editForm" *ngIf="editTitle">
+        <mat-form-field class="full-width">
+          <input type="text"
+                  placeholder="Write your title"
+                  matInput
+                  value="{{ theme.name }}"
+                  formControlName="name" >
+        </mat-form-field>
 
-      <div class="btn-block">
-        <button type="button" (click)="edit = !edit" mat-raised-button>Add/Edit</button>
-      </div>
+        <mat-form-field class="full-width">
+          <input type="text"
+                  placeholder="Write your description"
+                  matInput
+                  value="{{ theme.description }}"
+                  formControlName="description" >
+        </mat-form-field>
+      </form>
 
     </div>
 
-    <form *ngIf="edit" class="form" [formGroup]="editForm" (ngSubmit)="onSubmit()">
-       <button type="button" class="close-btn" mat-icon-button (click)="edit = !edit">
-         <mat-icon>close</mat-icon>
-        </button>
+    <div class="edit-info">
+      <button class="btn-edit btn-edit-info" mat-icon-button (click)="onSubmit($event);">
+        <mat-icon class="btn-edit-info">{{ !editInfo ? 'edit' : 'done' }}</mat-icon>
+      </button>
 
-      <h2 class="form-title text-center">Add or Edit Info</h2>
+      <p class="info-text" *ngIf="!editInfo">{{ theme.info }}</p>
 
-      <mat-form-field class="full-width">
-        <input type="text" formControlName="name" matInput value="{{ theme.name }}">
-      </mat-form-field>
-
-      <mat-form-field class="full-width">
-        <input type="text" formControlName="description" matInput value="{{ theme.description }}">
-      </mat-form-field>
-
-      <mat-form-field class="full-width">
-        <textarea formControlName="info" class="textarea" matInput value="{{ theme.info }}"></textarea>
-      </mat-form-field>
-
-      <button type="submit" mat-raised-button>Save</button>
-
-    </form>
+      <form [formGroup]="editForm" *ngIf="editInfo">
+        <mat-form-field class="full-width">
+          <textarea formControlName="info"
+                    class="textarea"
+                    matInput
+                    value="{{ theme.info }}"></textarea>
+        </mat-form-field>
+      </form>
+    </div>
 
   </ng-container>
 

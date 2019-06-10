@@ -2,6 +2,43 @@
   padding: 30px;
 }
 
+.edit-title, .edit-info {
+  max-width: 300px;
+  position: relative;
+  margin: 0 auto 100px;
+  transition: all .5s ease;
+  padding: 15px 0;
+
+  .btn-edit {
+    position: absolute;
+    right: -20px;
+    top: -17px;
+    padding: 0;
+    opacity: 0;
+  }
+
+  &:hover {
+    .btn-edit {
+      opacity: 1;
+    }
+  }
+}
+
+.edit-info {
+  margin: 0 auto 30px;
+  max-width: 965px;
+}
+
+.title {
+  margin: 0;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.description {
+  margin: 0;
+}
+
 .text-center {
   text-align: center;
 }
@@ -26,10 +63,6 @@
 
 .full-width {
   width: 100%;
-}
-
-.description {
-  margin-bottom: 100px;
 }
 
 .textarea {

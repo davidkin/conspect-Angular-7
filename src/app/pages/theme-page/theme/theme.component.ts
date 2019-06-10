@@ -19,6 +19,9 @@ export class ThemeComponent implements OnInit {
   public edit = false;
   public theme: ITheme;
 
+  public editTitle = false;
+  public editInfo = false;
+
   @Input() themeName: string;
   @Input() pageName: string;
 
@@ -63,12 +66,25 @@ export class ThemeComponent implements OnInit {
     });
   }
 
-  onSubmit(): void {
-    this.edit = !this.edit;
-
+  onSubmit(event): void {
     const id = this.editForm.value.id;
-    const data = this.editForm.value;
+    const formData = this.editForm.value;
+    const {
+      target: {
+        className: classOfClickedElement
+      }
+    } = event;
 
-    this.themeService.updateTheme(id, data, this.themeName);
+    if (classOfClickedElement.indexOf('btn-edit-title') !== -1) {
+      this.editTitle = !this.editTitle;
+    } else if (classOfClickedElement.indexOf('btn-edit-info') !== -1) {
+      this.editInfo = !this.editInfo;
+    }
+
+    if (this.editTitle || this.editInfo) {
+      return;
+    }
+
+    this.themeService.updateTheme(id, formData, this.themeName);
   }
 }
