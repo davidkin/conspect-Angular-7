@@ -24,6 +24,10 @@ import { AngularPageComponent } from './pages/angular-page/angular-page.componen
 import { AngularThemeComponent } from './pages/angular-page/angular-theme/angular-theme.component';
 import { JsPageComponent } from './pages/js-page/js-page.component';
 import { JsThemeComponent } from './pages/js-page/js-theme/js-theme.component';
+import { NodeJsPageComponent } from './pages/node-js-page/node-js-page.component';
+import { NodeJsThemeComponent } from './pages/node-js-page/node-js-theme/node-js-theme.component';
+import { ProgrammingPageComponent } from './pages/programming-page/programming-page.component';
+import { ProgrammingThemeComponent } from './pages/programming-page/programming-theme/programming-theme.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +40,10 @@ import { JsThemeComponent } from './pages/js-page/js-theme/js-theme.component';
     AngularThemeComponent,
     JsPageComponent,
     JsThemeComponent,
+    NodeJsPageComponent,
+    NodeJsThemeComponent,
+    ProgrammingPageComponent,
+    ProgrammingThemeComponent,
   ],
   imports: [
     BrowserModule,
