@@ -28,6 +28,8 @@ import { NodeJsPageComponent } from './pages/node-js-page/node-js-page.component
 import { NodeJsThemeComponent } from './pages/node-js-page/node-js-theme/node-js-theme.component';
 import { ProgrammingPageComponent } from './pages/programming-page/programming-page.component';
 import { ProgrammingThemeComponent } from './pages/programming-page/programming-theme/programming-theme.component';
+import { ReactPageComponent } from './pages/react-page/react-page.component';
+import { ReactThemeComponent } from './pages/react-page/react-theme/react-theme.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { ProgrammingThemeComponent } from './pages/programming-page/programming-
     NodeJsThemeComponent,
     ProgrammingPageComponent,
     ProgrammingThemeComponent,
+    ReactPageComponent,
+    ReactThemeComponent,
   ],
   imports: [
     BrowserModule,
