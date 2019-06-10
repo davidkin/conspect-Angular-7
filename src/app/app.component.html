@@ -23,7 +23,7 @@
 
   <mat-sidenav-container class="example-sidenav-container">
     <mat-sidenav #snav>
-      <mat-nav-list class="nav-list">
+      <mat-nav-list class="nav-list" (click)="snav.close(); isOpen = !isOpen">
         <app-menu></app-menu>
       </mat-nav-list>
     </mat-sidenav>
